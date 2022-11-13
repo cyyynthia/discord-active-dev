@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": true,
+    "allowUnreachableCode": false,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": false,
+
+    "types": [ "vite/client" ],
+    "lib": [ "esnext" ],
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+
+    "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment"
+  },
+  "include": [ "./src/**/*", "vite.config.ts" ]
+}
