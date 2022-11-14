@@ -42,22 +42,44 @@
 .api-call-header {
   padding: 8px 16px;
   border-bottom: 1px solid #181A1F;
-
+  flex-direction: column;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 8px;
 }
 
-.api-call-url {
-  font-family: 'JetBrains Mono', monospace;
+.api-call-header .api-call-data {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
-.api-call-body {
-  display: flex;
+@media (min-width: 850px) {
+  .api-call-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .api-call-body {
+    display: flex;
+  }
+
+  .api-call-panel, .api-call-button {
+    width: 50%;
+  }
+
+  .api-call-panel + .api-call-panel {
+    border-left: 1px solid #181A1F;
+  }
+}
+
+@media (max-width: 850px) {
+  .api-call-panel + .api-call-panel {
+    border-top: 1px solid #181A1F;
+  }
 }
 
 .api-call-panel {
-  width: 50%;
   padding: 16px;
 }
 
@@ -71,20 +93,21 @@
   margin-bottom: 8px;
 }
 
-.api-call-panel + .api-call-panel {
-  border-left: 1px solid #181A1F;
-}
-
 .api-call-data {
   font-family: 'JetBrains Mono', monospace;
   font-size: .85em;
+}
+
+.api-call-panel .api-call-data {
+  word-break: break-all;
+  white-space: break-spaces;
 }
 
 .api-call-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  padding: 16px;
 }
 
 .api-call-secret {
@@ -104,10 +127,10 @@
   background-color: currentColor;
 }
 
-
 .api-call-code-line {
   display: flex;
   white-space: pre;
+  flex-wrap: wrap;
 }
 
 .api-call-token-brace, .api-call-token-colon {

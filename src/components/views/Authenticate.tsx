@@ -56,7 +56,7 @@ export default function Authenticate ({ credentials, onNext, onPrev }: Props) {
       <p class='page-paragraph'>
         You now have your application's credentials. However, you're not yet ready to call the Discord API. You need
         to convert your credentials into an <i>OAuth2 Access Token</i>. To do so, you need to send your first (!)
-        request to Discord, and perform a <i>Client Credentials Grant</i>.
+        request to Discord, and perform a <b>Client Credentials Grant</b>.
       </p>
       <p class='page-paragraph'>
         You'll need to prepare a <i>Basic authentication token</i>. To get it, you simply need to join your Client ID

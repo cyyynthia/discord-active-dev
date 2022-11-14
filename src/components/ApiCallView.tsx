@@ -111,8 +111,8 @@ export default function ApiCallView (props: ApiCallViewProps) {
   return (
     <div class='api-call'>
       <div class='api-call-header'>
-        <div class='api-call-url'>{props.method} {props.url}</div>
-        <div class='api-call-data'>{status}</div>
+        <div class='api-call-data'>{props.method} {props.url}</div>
+        {!!status && <div class='api-call-data'>{status}</div>}
       </div>
       <div class='api-call-body'>
         <div class='api-call-panel'>

@@ -69,6 +69,22 @@ const DISC_QUOTES = [
   {
     q: 'it\'s not abuse',
     a: 'DV8FromTheWorld'
+  },
+  {
+    q: 'bad news everyone, I have decided my cat iago is cuter than all of you',
+    a: 'Ian aka Desch'
+  },
+  {
+    q: 'Yeah I\'m a real person',
+    a: 'Ian aka Desch'
+  },
+  {
+    q: 'I\'m a badge',
+    a: 'Ian aka Desch'
+  },
+  {
+    q: 'It\'s scary work, gotta touch some jobs / sql / data pipelines. I just wanna write CSS 😭',
+    a: 'Ian aka Desch'
   }
 ]
 
@@ -96,13 +112,19 @@ export default function App ({ children }: Props) {
           <span>meow</span>
         </div>
         <div class='footer-quote'>
-          <div class='footer-quote-text'>{DISC_QUOTES[quoteId].q}</div>
-          <span>—</span>
-          <div class='footer-quote-credit'>{DISC_QUOTES[quoteId].a}</div>
+          <span class='footer-quote-text'>{DISC_QUOTES[quoteId].q}</span>
+          <span> — </span>
+          <span class='footer-quote-credit'>{DISC_QUOTES[quoteId].a}</span>
         </div>
-        <div class='footer-copyreich'>
-          Copyright &copy; Cynthia Rey. Licensed under the BSD-3-Clause license.
-          Quotes from the Discord Developers server.
+        <div class='footer-legal'>
+          <div>
+            Copyright &copy; Cynthia Rey. Licensed under the BSD-3-Clause license.
+            Quotes from the <Link href='https://discord.gg/discord-developers'>Discord Developers</Link> server.
+          </div>
+          <div>
+            The quotes are provided in respect of the applicable intellectual property laws in France.
+            (<Link href='https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000037388886/2018-09-07'>CPI, art. L. 122-5</Link>)
+          </div>
         </div>
       </footer>
     </>

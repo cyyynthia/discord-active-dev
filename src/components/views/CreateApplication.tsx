@@ -62,7 +62,7 @@ export default function CreateApplication ({ onNext }: Props) {
         it as much as the password to your Discord account. The credentials you'll enter here will stay safe in your
         web browser.
       </Box>
-      <div class='flex'>
+      <div class='flex-lg'>
         <Field inputRef={idRef} label='Client ID'/>
         <Field inputRef={secretRef} label='Client Secret' password/>
       </div>

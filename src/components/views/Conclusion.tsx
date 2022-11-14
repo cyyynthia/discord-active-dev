@@ -35,22 +35,17 @@ export default function Conclusion () {
       <h2 class='page-title'>The end! 🎉</h2>
       <p class='page-paragraph'>
         This marks the end of your journey on running the first command on your own. You should be able to claim your
-        <i>Active Developer</i> badge within the next 24 hours.
+        <i>Active Developer</i> badge within the next 24 hours here: <TextLink href='https://discord.com/developers/active-developer'/>.
       </p>
       <p class='page-paragraph'>
         I hope you enjoyed this tutorial and learned something. Maybe the next milestone is to build the part that
         responds to the command yourself! Discord themselves put together guides to help you get started on that.
       </p>
-
-      <hr/>
       <p class='page-paragraph'>
-        If you want to support me, here are a few things you can do:
+        Fun fact: the server that responded to your /ping command is less than 100 lines of JavaScript code! If you
+        ignore the parts required for use as part of this "tutorial", you can get away with less than 50 lines of code!
+        Don't believe me? Try it ;)
       </p>
-      <ul>
-        <li>Share this around</li>
-        <li>Leave a star on the <Link href=''>GitHub repository</Link></li>
-        <li><Link href=''>Donate on ko-fi</Link>, if you're extra generous!</li>
-      </ul>
 
       <hr/>
       <p class='page-paragraph'>
@@ -60,6 +55,16 @@ export default function Conclusion () {
         <li>Discord Developers server: <TextLink href='https://discord.gg/discord-developers'/></li>
         <li><Link href='https://discord.com/developers/docs/tutorials/hosting-on-cloudflare-workers'>Discord's Cloudflare Workers tutorial</Link></li>
         <li><Link href='https://discord.dev'>Discord docs</Link> as a whole</li>
+      </ul>
+
+      <hr/>
+      <p class='page-paragraph'>
+        If you want to support me, here are a few things you can do:
+      </p>
+      <ul>
+        <li>Share this around</li>
+        <li>Leave a star on the <Link href=''>GitHub repository</Link></li>
+        <li><Link href=''>Donate on ko-fi</Link>, if you're extra generous!</li>
       </ul>
     </>
   )

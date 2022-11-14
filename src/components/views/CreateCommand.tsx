@@ -50,8 +50,8 @@ export default function CreateCommand ({ token, credentials, onNext, onPrev }: P
     <>
       <h2 class='page-title'>Third step: create a command</h2>
       <p class='page-paragraph'>
-        Now we can start doing fun things. Let's start by registering your first command! This example will register a
-        global "ping" command to your application.
+        Now we can start doing fun things. Let's start by <b>registering your first command</b>! This example will
+        register a global "ping" command to your application.
       </p>
       <p class='page-paragraph'>
         Type <code>1</code> corresponds to a Slash Command. All the available types are documented on Discord's docs.
