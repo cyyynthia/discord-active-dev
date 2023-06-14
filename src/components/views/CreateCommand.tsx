@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -36,49 +36,50 @@ import ApiCallView from '../ApiCallView'
 import { Request, Response } from '../code/Command'
 
 type Props = {
-  token?: string
-  credentials?: Credentials
-  onNext: (token?: string) => void
-  onPrev: () => void
+	token?: string
+	credentials?: Credentials
+	onNext: (token?: string) => void
+	onPrev: () => void
 }
 
 export default function CreateCommand ({ token, credentials, onNext, onPrev }: Props) {
-  const clientId = credentials?.clientId || '<client_id>'
-  const [ canGoNext, setCanGoNext ] = useState(!token)
+	const clientId = credentials?.clientId || '<client_id>'
+	const [ canGoNext, setCanGoNext ] = useState(!token)
 
-  return (
-    <>
-      <h2 class='page-title'>Third step: create a command</h2>
-      <p class='page-paragraph'>
-        Now we can start doing fun things. Let's start by <b>registering your first command</b>! This example will
-        register a global "ping" command to your application.
-      </p>
-      <p class='page-paragraph'>
-        Type <code>1</code> corresponds to a Slash Command. All the available types are documented on Discord's docs.
-      </p>
+	return (
+		<>
+			<h2 class='page-title'>Third step: create a command</h2>
+			<p class='page-paragraph'>
+				Now we can start doing fun things. Let's start by <b>registering your first command</b>! This example
+				will register a global "ping" command to your application.
+			</p>
+			<p class='page-paragraph'>
+				Type <code>1</code> corresponds to a Slash Command. All the available types are documented on Discord's
+				docs.
+			</p>
 
-      <ApiCallView
-        method='POST'
-        url={`https://discord.com/api/v10/applications/${clientId}/commands`}
-        token={{ type: 'Bearer', token: token || '' }}
-        callable={!!token}
+			<ApiCallView
+				method='POST'
+				url={`https://discord.com/api/v10/applications/${clientId}/commands`}
+				token={{ type: 'Bearer', token: token || '' }}
+				callable={!!token}
 
-        requestData='{"name":"ping","type":1,"description":"Responds with pong!"}'
-        requestView={Request}
-        responseView={Response}
-        onResponse={(res) => setCanGoNext(!!res.id)}
-      />
+				requestData='{"name":"ping","type":1,"description":"Responds with pong!"}'
+				requestView={Request}
+				responseView={Response}
+				onResponse={(res) => setCanGoNext(!!res.id)}
+			/>
 
-      <div class='flex'>
-        <button onClick={() => onPrev()}>Prev step</button>
-        <button onClick={() => canGoNext && onNext()} disabled={!canGoNext}>Next step</button>
-      </div>
+			<div class='flex'>
+				<button onClick={() => onPrev()}>Prev step</button>
+				<button onClick={() => canGoNext && onNext()} disabled={!canGoNext}>Next step</button>
+			</div>
 
-      <hr/>
-      <h3>Extra resources</h3>
-      <ul>
-        <li>Registering a Command docs: <TextLink href='https://discord.dev/interactions/application-commands#registering-a-command'/></li>
-      </ul>
-    </>
-  )
+			<hr/>
+			<h3>Extra resources</h3>
+			<ul>
+				<li>Registering a Command docs: <TextLink href='https://discord.dev/interactions/application-commands#registering-a-command'/></li>
+			</ul>
+		</>
+	)
 }

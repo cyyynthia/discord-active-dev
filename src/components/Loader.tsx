@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,11 +31,11 @@ import { h } from 'preact'
 import '../styles/loader.css'
 
 export default function Loader () {
-  return (
-    <svg viewBox='25 25 50 50' class='loader'>
-      <circle cx='50' cy='50' r='20' class='loader-path dark'/>
-      <circle cx='50' cy='50' r='20' class='loader-path light'/>
-      <circle cx='50' cy='50' r='20' class='loader-path'/>
-    </svg>
-  )
+	return (
+		<svg viewBox='25 25 50 50' class='loader'>
+			<circle cx='50' cy='50' r='20' class='loader-path dark'/>
+			<circle cx='50' cy='50' r='20' class='loader-path light'/>
+			<circle cx='50' cy='50' r='20' class='loader-path'/>
+		</svg>
+	)
 }

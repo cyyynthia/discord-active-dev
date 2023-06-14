@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,33 +27,33 @@
  */
 
 .info-box.warning {
-  --color: #faa81a;
-  --color-t: #faa81a20;
+	--color: #faa81a;
+	--color-t: #faa81a20;
 }
 
 .info-box {
-  background-color: var(--color-t);
-  border-left: 8px solid var(--color);
-  padding: 8px 16px;
-  margin-bottom: 16px;
+	background-color: var(--color-t);
+	border-left: 8px solid var(--color);
+	padding: 8px 16px;
+	margin-bottom: 16px;
 }
 
 .info-box-header {
-  display: flex;
-  align-content: center;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-  gap: 8px;
+	display: flex;
+	align-content: center;
+	text-transform: uppercase;
+	margin-bottom: 8px;
+	gap: 8px;
 }
 
 .info-box-header svg {
-  width: 1.5em;
-  height: 1.5em;
-  color: var(--color);
+	width: 1.5em;
+	height: 1.5em;
+	color: var(--color);
 }
 
 .info-box-header span {
-  margin-top: 1px;
-  font-weight: bold;
-  color: var(--color);
+	margin-top: 1px;
+	font-weight: bold;
+	color: var(--color);
 }

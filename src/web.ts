@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,6 +31,6 @@ import App from './components/App'
 import './styles/main.css'
 
 render(
-  h(App, null),
-  document.getElementById('app')!
+	h(App, null),
+	document.getElementById('app')!
 )

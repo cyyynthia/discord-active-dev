@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -36,13 +36,13 @@ import '../styles/box.css'
 type BoxProps = { type: 'warning', children: ComponentChildren }
 
 export default function BoxProps ({ type, children }: BoxProps) {
-  return (
-    <div class={`info-box ${type}`}>
-      <div class='info-box-header'>
-        <Warning/>
-        <span>Warning</span>
-      </div>
-      <div class='info-box-content'>{children}</div>
-    </div>
-  )
+	return (
+		<div class={`info-box ${type}`}>
+			<div class='info-box-header'>
+				<Warning/>
+				<span>Warning</span>
+			</div>
+			<div class='info-box-content'>{children}</div>
+		</div>
+	)
 }

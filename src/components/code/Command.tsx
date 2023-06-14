@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,72 +30,72 @@ import type { ResponseProps } from '../ApiCallView'
 import { h } from 'preact'
 
 export function Request () {
-  return (
-    <>
-      <div class='api-call-code-line'>
-        <div class='api-call-token-brace'>{'{'}</div>
-      </div>
-      <div class='api-call-code-line'>
-        <span>  </span>
-        <div class='api-call-token-key'>"name"</div>
-        <div class='api-call-token-colon'>: </div>
-        <div class='api-call-token-string'>"ping"</div>
-      </div>
-      <div class='api-call-code-line'>
-        <span>  </span>
-        <div class='api-call-token-key'>"type"</div>
-        <div class='api-call-token-colon'>: </div>
-        <div class='api-call-token-number'>1</div>
-      </div>
-      <div class='api-call-code-line'>
-        <span>  </span>
-        <div class='api-call-token-key'>"description"</div>
-        <div class='api-call-token-colon'>: </div>
-        <div class='api-call-token-string'>"Responds with pong!"</div>
-      </div>
-      <div class='api-call-code-line'>
-        <div class='api-call-token-brace'>{'}'}</div>
-      </div>
-    </>
-  )
+	return (
+		<>
+			<div class='api-call-code-line'>
+				<div class='api-call-token-brace'>{'{'}</div>
+			</div>
+			<div class='api-call-code-line'>
+				<span>  </span>
+				<div class='api-call-token-key'>"name"</div>
+				<div class='api-call-token-colon'>: </div>
+				<div class='api-call-token-string'>"ping"</div>
+			</div>
+			<div class='api-call-code-line'>
+				<span>  </span>
+				<div class='api-call-token-key'>"type"</div>
+				<div class='api-call-token-colon'>: </div>
+				<div class='api-call-token-number'>1</div>
+			</div>
+			<div class='api-call-code-line'>
+				<span>  </span>
+				<div class='api-call-token-key'>"description"</div>
+				<div class='api-call-token-colon'>: </div>
+				<div class='api-call-token-string'>"Responds with pong!"</div>
+			</div>
+			<div class='api-call-code-line'>
+				<div class='api-call-token-brace'>{'}'}</div>
+			</div>
+		</>
+	)
 }
 
 export function Response ({ response }: ResponseProps) {
-  return (
-    <>
-      <div class='api-call-code-line'>
-        <div class='api-call-token-brace'>{'{'}</div>
-      </div>
-      <div class='api-call-code-line'>
-        <span>  </span>
-        <div class='api-call-token-key'>"id"</div>
-        <div class='api-call-token-colon'>: </div>
-        <div class='api-call-token-string'>"{response?.id ?? '00000000000000000'}"</div>
-      </div>
-      <div class='api-call-code-line'>
-        <span>  </span>
-        <div class='api-call-token-key'>"name"</div>
-        <div class='api-call-token-colon'>: </div>
-        <div class='api-call-token-string'>"ping"</div>
-      </div>
-      <div class='api-call-code-line'>
-        <span>  </span>
-        <div class='api-call-token-key'>"type"</div>
-        <div class='api-call-token-colon'>: </div>
-        <div class='api-call-token-number'>1</div>
-      </div>
-      <div class='api-call-code-line'>
-        <span>  </span>
-        <div class='api-call-token-key'>"description"</div>
-        <div class='api-call-token-colon'>: </div>
-        <div class='api-call-token-string'>"Responds with pong!"</div>
-      </div>
-      <div class='api-call-code-line'>
-        <span>  ...</span>
-      </div>
-      <div class='api-call-code-line'>
-        <div class='api-call-token-brace'>{'}'}</div>
-      </div>
-    </>
-  )
+	return (
+		<>
+			<div class='api-call-code-line'>
+				<div class='api-call-token-brace'>{'{'}</div>
+			</div>
+			<div class='api-call-code-line'>
+				<span>  </span>
+				<div class='api-call-token-key'>"id"</div>
+				<div class='api-call-token-colon'>: </div>
+				<div class='api-call-token-string'>"{response?.id ?? '00000000000000000'}"</div>
+			</div>
+			<div class='api-call-code-line'>
+				<span>  </span>
+				<div class='api-call-token-key'>"name"</div>
+				<div class='api-call-token-colon'>: </div>
+				<div class='api-call-token-string'>"ping"</div>
+			</div>
+			<div class='api-call-code-line'>
+				<span>  </span>
+				<div class='api-call-token-key'>"type"</div>
+				<div class='api-call-token-colon'>: </div>
+				<div class='api-call-token-number'>1</div>
+			</div>
+			<div class='api-call-code-line'>
+				<span>  </span>
+				<div class='api-call-token-key'>"description"</div>
+				<div class='api-call-token-colon'>: </div>
+				<div class='api-call-token-string'>"Responds with pong!"</div>
+			</div>
+			<div class='api-call-code-line'>
+				<span>  ...</span>
+			</div>
+			<div class='api-call-code-line'>
+				<div class='api-call-token-brace'>{'}'}</div>
+			</div>
+		</>
+	)
 }

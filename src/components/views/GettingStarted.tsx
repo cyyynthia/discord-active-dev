@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,17 +31,17 @@ import { h } from 'preact'
 type Props = { onNext: () => void }
 
 export default function GettingStarted ({ onNext }: Props) {
-  return (
-    <>
-      <h2 class='page-title'>Welcome, adventurer...</h2>
-      <p class='page-paragraph'>
-        This tool will walk you through the steps required to get started in building a Discord bot, and gain
-        the <i>Active Developer</i> badge on your profile.
-      </p>
-      <p class='page-paragraph'>
-        No prior programming knowledge is required, you simply need to follow the steps!
-      </p>
-      <button onClick={onNext}>Get started!</button>
-    </>
-  )
+	return (
+		<>
+			<h2 class='page-title'>Welcome, adventurer...</h2>
+			<p class='page-paragraph'>
+				This tool will walk you through the steps required to get started in building a Discord bot, and gain
+				the <i>Active Developer</i> badge on your profile.
+			</p>
+			<p class='page-paragraph'>
+				No prior programming knowledge is required, you simply need to follow the steps!
+			</p>
+			<button onClick={onNext}>Get started!</button>
+		</>
+	)
 }

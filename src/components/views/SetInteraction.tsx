@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,42 +30,42 @@ import { h } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
 
 type Props = {
-  token?: string
-  onNext: (token?: string) => void
-  onPrev: () => void
+	token?: string
+	onNext: (token?: string) => void
+	onPrev: () => void
 }
 
 export default function SetInteraction ({ token, onNext, onPrev }: Props) {
-  const [ publicKey, setPublicKey ] = useState('<your_public_key>')
-  useEffect(() => {
-    if (!token) return
-    fetch('https://discord.com/api/v10/oauth2/@me', { headers: { authorization: `Bearer ${token}`} })
-      .then((r) => r.json())
-      .then((r) => setPublicKey(r.application.verify_key))
-  }, [ token ])
+	const [ publicKey, setPublicKey ] = useState('<your_public_key>')
+	useEffect(() => {
+		if (!token) return
+		fetch('https://discord.com/api/v10/oauth2/@me', { headers: { authorization: `Bearer ${token}`} })
+			.then((r) => r.json())
+			.then((r) => setPublicKey(r.application.verify_key))
+	}, [ token ])
 
-  return (
-    <>
-      <h2 class='page-title'>Fourth step: configure the interaction endpoint</h2>
-      <p class='page-paragraph'>
-        Whenever a user calls a command, Discord needs to know where to send the command to. That's the purpose of
-        the <i>interactions endpoint</i>.
-      </p>
-      <p class='page-paragraph'>
-        For now, we'll use a test server, that just does the bare minimum for the command to actually work. Go
-        to your application's settings, and set the "Interactions Endpoint URL" to the following:
-      </p>
-      <p class='page-paragraph'>
-        <code>https://disc-active-dev.cynthia.dev/i/{publicKey}</code>
-      </p>
-      <p class='page-paragraph'>
-        The public key is the 64-char-long string Discord gives on your application's page.
-      </p>
+	return (
+		<>
+			<h2 class='page-title'>Fourth step: configure the interaction endpoint</h2>
+			<p class='page-paragraph'>
+				Whenever a user calls a command, Discord needs to know where to send the command to. That's the purpose
+				of the <i>interactions endpoint</i>.
+			</p>
+			<p class='page-paragraph'>
+				For now, we'll use a test server, that just does the bare minimum for the command to actually work. Go
+				to your application's settings, and set the "Interactions Endpoint URL" to the following:
+			</p>
+			<p class='page-paragraph'>
+				<code>https://disc-active-dev.cynthia.dev/i/{publicKey}</code>
+			</p>
+			<p class='page-paragraph'>
+				The public key is the 64-char-long string Discord gives on your application's page.
+			</p>
 
-      <div class='flex'>
-        <button onClick={() => onPrev()}>Prev step</button>
-        <button onClick={() => onNext()}>Next step</button>
-      </div>
-    </>
-  )
+			<div class='flex'>
+				<button onClick={() => onPrev()}>Prev step</button>
+				<button onClick={() => onNext()}>Next step</button>
+			</div>
+		</>
+	)
 }

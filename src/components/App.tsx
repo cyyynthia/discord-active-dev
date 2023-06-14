@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,37 +42,37 @@ import Conclusion from './views/Conclusion'
 export type Credentials = { clientId: string, clientSecret: string }
 
 export default function App () {
-  const [ step, setStep ] = useState(0)
+	const [ step, setStep ] = useState(0)
 
-  // State
-  const [ credentials, setCredentials ] = useState<Credentials | undefined>()
-  const [ token, setToken ] = useState<string | undefined>()
+	// State
+	const [ credentials, setCredentials ] = useState<Credentials | undefined>()
+	const [ token, setToken ] = useState<string | undefined>()
 
-  // Callbacks
-  const onCreateApp = useCallback(
-    (clientId?: string, clientSecret?: string) => {
-      if (clientId && clientSecret) setCredentials({ clientId, clientSecret })
-      setStep(2)
-    },
-    [ setCredentials, setStep ]
-  )
-  const onAuthenticate = useCallback(
-    (token?: string) => {
-      setToken(token)
-      setStep(3)
-    },
-    [ setToken, setStep ]
-  )
+	// Callbacks
+	const onCreateApp = useCallback(
+		(clientId?: string, clientSecret?: string) => {
+			if (clientId && clientSecret) setCredentials({ clientId, clientSecret })
+			setStep(2)
+		},
+		[ setCredentials, setStep ]
+	)
+	const onAuthenticate = useCallback(
+		(token?: string) => {
+			setToken(token)
+			setStep(3)
+		},
+		[ setToken, setStep ]
+	)
 
-  return (
-    <Layout>
-      {step === 0 && <GettingStarted onNext={() => setStep(1)}/>}
-      {step === 1 && <CreateApplication onNext={onCreateApp}/>}
-      {step === 2 && <Authenticate credentials={credentials} onNext={onAuthenticate} onPrev={() => setStep(1)}/>}
-      {step === 3 && <CreateCommand credentials={credentials} token={token} onNext={() => setStep(4)} onPrev={() => setStep(2)}/>}
-      {step === 4 && <SetInteraction token={token} onNext={() => setStep(5)} onPrev={() => setStep(3)}/>}
-      {step === 5 && <Invite credentials={credentials} onNext={() => setStep(6)} onPrev={() => setStep(4)}/>}
-      {step === 6 && <Conclusion/>}
-    </Layout>
-  )
+	return (
+		<Layout>
+			{step === 0 && <GettingStarted onNext={() => setStep(1)}/>}
+			{step === 1 && <CreateApplication onNext={onCreateApp}/>}
+			{step === 2 && <Authenticate credentials={credentials} onNext={onAuthenticate} onPrev={() => setStep(1)}/>}
+			{step === 3 && <CreateCommand credentials={credentials} token={token} onNext={() => setStep(4)} onPrev={() => setStep(2)}/>}
+			{step === 4 && <SetInteraction token={token} onNext={() => setStep(5)} onPrev={() => setStep(3)}/>}
+			{step === 5 && <Invite credentials={credentials} onNext={() => setStep(6)} onPrev={() => setStep(4)}/>}
+			{step === 6 && <Conclusion/>}
+		</Layout>
+	)
 }

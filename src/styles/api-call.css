@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,128 +27,128 @@
  */
 
 .api-call {
-  border-radius: 8px;
-  background-color: #282C34;
-  color: #fff;
-  margin-bottom: 16px;
+	border-radius: 8px;
+	background-color: #282C34;
+	color: #fff;
+	margin-bottom: 16px;
 }
 
 .api-call hr {
-  margin-top: 16px;
-  margin-bottom: 16px;
-  background-color: #181A1F;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	background-color: #181A1F;
 }
 
 .api-call-header {
-  padding: 8px 16px;
-  border-bottom: 1px solid #181A1F;
-  flex-direction: column;
-  display: flex;
-  gap: 8px;
+	padding: 8px 16px;
+	border-bottom: 1px solid #181A1F;
+	flex-direction: column;
+	display: flex;
+	gap: 8px;
 }
 
 .api-call-header .api-call-data {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 @media (min-width: 850px) {
-  .api-call-header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+	.api-call-header {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
 
-  .api-call-body {
-    display: flex;
-  }
+	.api-call-body {
+		display: flex;
+	}
 
-  .api-call-panel, .api-call-button {
-    width: 50%;
-  }
+	.api-call-panel, .api-call-button {
+		width: 50%;
+	}
 
-  .api-call-panel + .api-call-panel {
-    border-left: 1px solid #181A1F;
-  }
+	.api-call-panel + .api-call-panel {
+		border-left: 1px solid #181A1F;
+	}
 }
 
 @media (max-width: 850px) {
-  .api-call-panel + .api-call-panel {
-    border-top: 1px solid #181A1F;
-  }
+	.api-call-panel + .api-call-panel {
+		border-top: 1px solid #181A1F;
+	}
 }
 
 .api-call-panel {
-  padding: 16px;
+	padding: 16px;
 }
 
 .api-call-title {
-  margin-bottom: 16px;
+	margin-bottom: 16px;
 }
 
 .api-call-section {
-  text-transform: uppercase;
-  font-size: 0.8em;
-  margin-bottom: 8px;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	margin-bottom: 8px;
 }
 
 .api-call-data {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .85em;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: .85em;
 }
 
 .api-call-panel .api-call-data {
-  word-break: break-all;
-  white-space: break-spaces;
+	word-break: break-all;
+	white-space: break-spaces;
 }
 
 .api-call-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 16px;
 }
 
 .api-call-secret {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: 0 2px;
-  top: -.15em;
-  gap: 4px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	margin: 0 2px;
+	top: -.15em;
+	gap: 4px;
 }
 
 .api-call-secret span {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background-color: currentColor;
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background-color: currentColor;
 }
 
 .api-call-code-line {
-  display: flex;
-  white-space: pre;
-  flex-wrap: wrap;
+	display: flex;
+	white-space: pre;
+	flex-wrap: wrap;
 }
 
 .api-call-token-brace, .api-call-token-colon {
-  color: #bbb;
+	color: #bbb;
 }
 
 .api-call-token-key {
-  color: #f571a1;
+	color: #f571a1;
 }
 
 .api-call-token-string {
-  color: #fab0cb;
+	color: #fab0cb;
 }
 
 .api-call-token-number {
-  color: #fae3c6;
+	color: #fae3c6;
 }
 
 .api-call-token-boolean {
-  color: #a9ddd6;
+	color: #a9ddd6;
 }

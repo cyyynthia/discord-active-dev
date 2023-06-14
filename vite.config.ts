@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -41,89 +41,89 @@ const baseLicensePath = join('dist', 'assets', 'third-party-licenses.txt')
 
 // rollup-plugin-license doesn't do a great job w/ Vite :<
 function finishLicense (): Plugin {
-  let skip = false
-  return {
-    name: 'finish-license',
-    configResolved (cfg) {
-      skip = !cfg.isProduction
-    },
-    generateBundle (_, bundle) {
-      if (process.argv.includes('--ssr')) return
-      const header = [
-        'Copyright (c) Cynthia Rey, All Rights Reserved.',
-        'Licensed under the BSD-3-Clause license. Contains third-party software licensed under different terms.',
-        `For third-party software licenses included in this build, please see /${finalLicensePath}`
-      ]
+	let skip = false
+	return {
+		name: 'finish-license',
+		configResolved (cfg) {
+			skip = !cfg.isProduction
+		},
+		generateBundle (_, bundle) {
+			if (process.argv.includes('--ssr')) return
+			const header = [
+				'Copyright (c) Cynthia Rey, All Rights Reserved.',
+				'Licensed under the BSD-3-Clause license. Contains third-party software licensed under different terms.',
+				`For third-party software licenses included in this build, please see /${finalLicensePath}`
+			]
 
-      for (const item of Object.values(bundle)) {
-        if (item.type === 'chunk') {
-          item.code = `/*!\n * ${header.join('\n * ')}\n */\n${item.code}`
-          continue
-        }
+			for (const item of Object.values(bundle)) {
+				if (item.type === 'chunk') {
+					item.code = `/*!\n * ${header.join('\n * ')}\n */\n${item.code}`
+					continue
+				}
 
-        if (item.fileName.endsWith('.svg')) {
-          item.source = `<!--\n  ${header.join('\n  ')}\n-->\n${item.source}`
-          continue
-        }
+				if (item.fileName.endsWith('.svg')) {
+					item.source = `<!--\n  ${header.join('\n  ')}\n-->\n${item.source}`
+					continue
+				}
 
-        if (item.fileName.endsWith('.css')) {
-          item.source = `/*!\n * ${header.join('\n * ')}\n */\n${item.source}`
-          continue
-        }
-      }
-    },
-    closeBundle: async () => {
-      if (!skip && !process.argv.includes('--ssr')) {
-        await rename(baseLicensePath, join(__dirname, 'dist', finalLicensePath)).catch(() => void 0)
-      }
-    },
-  }
+				if (item.fileName.endsWith('.css')) {
+					item.source = `/*!\n * ${header.join('\n * ')}\n */\n${item.source}`
+					continue
+				}
+			}
+		},
+		closeBundle: async () => {
+			if (!skip && !process.argv.includes('--ssr')) {
+				await rename(baseLicensePath, join(__dirname, 'dist', finalLicensePath)).catch(() => void 0)
+			}
+		},
+	}
 }
 
 export default defineConfig({
-  build: {
-    assetsInlineLimit: 0,
-    polyfillModulePreload: false
-  },
-  plugins: [
-    preact(),
-    // @ts-expect-error
-    magicalSvg.default({ target: 'preact' }),
-    licensePlugin({
-      thirdParty: {
-        includePrivate: false,
-        allow: {
-          test: '(BSD-3-Clause OR MIT OR CC0-1.0)',
-          failOnUnlicensed: true,
-        },
-        output: {
-          file: join(__dirname, baseLicensePath),
-          template: (deps) => {
-            let str = 'Licenses for open-source software used in this website are reproduced below.\n=========================\n\n'
-            for (const dep of deps) {
-              if (!dep.licenseText) continue
-              const home = dep.homepage || (dep.repository as any).url || dep.repository
-              str += `${dep.name}${home ? ` (${home})` : ''}\nThis software is licensed under the following terms:\n\n${dep.licenseText.trim()}\n\n----------\n\n`
-            }
+	build: {
+		assetsInlineLimit: 0,
+		polyfillModulePreload: false
+	},
+	plugins: [
+		preact(),
+		// @ts-expect-error
+		magicalSvg.default({ target: 'preact' }),
+		licensePlugin({
+			thirdParty: {
+				includePrivate: false,
+				allow: {
+					test: '(BSD-3-Clause OR MIT OR CC0-1.0)',
+					failOnUnlicensed: true,
+				},
+				output: {
+					file: join(__dirname, baseLicensePath),
+					template: (deps) => {
+						let str = 'Licenses for open-source software used in this website are reproduced below.\n=========================\n\n'
+						for (const dep of deps) {
+							if (!dep.licenseText) continue
+							const home = dep.homepage || (dep.repository as any).url || dep.repository
+							str += `${dep.name}${home ? ` (${home})` : ''}\nThis software is licensed under the following terms:\n\n${dep.licenseText.trim()}\n\n----------\n\n`
+						}
 
-            // Lexend
-            const lexendLicense = readFileSync(join(__dirname, 'src', 'fonts', 'lexend-license.txt'), 'utf8')
-            str += `Lexend font face (https://www.lexend.com/)\nThis software is licensed under the following terms:\n\n${lexendLicense.trim()}\n\n----------\n\n`
+						// Lexend
+						const lexendLicense = readFileSync(join(__dirname, 'src', 'fonts', 'lexend-license.txt'), 'utf8')
+						str += `Lexend font face (https://www.lexend.com/)\nThis software is licensed under the following terms:\n\n${lexendLicense.trim()}\n\n----------\n\n`
 
-            // JB Mono
-            const jetbrainsMonoLicense = readFileSync(join(__dirname, 'src', 'fonts', 'jetbrains-mono-license.txt'), 'utf8')
-            str += `JetBrains Mono font face (https://www.jetbrains.com/lp/mono/)\nThis software is licensed under the following terms:\n\n${jetbrainsMonoLicense.trim()}\n\n----------\n\n`
+						// JB Mono
+						const jetbrainsMonoLicense = readFileSync(join(__dirname, 'src', 'fonts', 'jetbrains-mono-license.txt'), 'utf8')
+						str += `JetBrains Mono font face (https://www.jetbrains.com/lp/mono/)\nThis software is licensed under the following terms:\n\n${jetbrainsMonoLicense.trim()}\n\n----------\n\n`
 
-            // Create hash
-            str += 'Meow~'
-            const hash = createHash('sha256').update(str).digest('hex').slice(0, 8)
-            finalLicensePath = join('assets', `third-party-licenses.${hash}.txt`)
+						// Create hash
+						str += 'Meow~'
+						const hash = createHash('sha256').update(str).digest('hex').slice(0, 8)
+						finalLicensePath = join('assets', `third-party-licenses.${hash}.txt`)
 
-            return str
-          },
-        },
-      },
-    }),
-    finishLicense(),
-  ]
+						return str
+					},
+				},
+			},
+		}),
+		finishLicense(),
+	]
 })

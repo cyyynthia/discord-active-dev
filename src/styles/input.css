@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,22 +27,22 @@
  */
 
 .field {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 16px;
 }
 
 .field-label {
-  margin-bottom: 4px;
+	margin-bottom: 4px;
 }
 
 .field-input {
-  border: 1px var(--text-color) solid;
-  background: transparent;
-  font: inherit;
-  color: inherit;
-  border-radius: 4px;
-  padding: 4px 8px;
-  outline: none;
+	border: 1px var(--text-color) solid;
+	background: transparent;
+	font: inherit;
+	color: inherit;
+	border-radius: 4px;
+	padding: 4px 8px;
+	outline: none;
 }

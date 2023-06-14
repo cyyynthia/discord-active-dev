@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -33,13 +33,13 @@ type TextLinkProps = { href: string }
 type LinkProps = { href: string, children: ComponentChildren }
 
 export function TextLink ({ href }: TextLinkProps) {
-  return (
-    <a href={href} target='_blank' rel='noreferrer'>{href}</a>
-  )
+	return (
+		<a href={href} target='_blank' rel='noreferrer'>{href}</a>
+	)
 }
 
 export function Link ({ href, children }: LinkProps) {
-  return (
-    <a href={href} target='_blank' rel='noreferrer'>{children}</a>
-  )
+	return (
+		<a href={href} target='_blank' rel='noreferrer'>{children}</a>
+	)
 }

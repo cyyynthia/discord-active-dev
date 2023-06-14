@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -36,37 +36,37 @@ import { TextLink } from '../Link'
 type Props = { onNext: (clientId?: string, clientSecret?: string) => void }
 
 export default function CreateApplication ({ onNext }: Props) {
-  const idRef = useRef<HTMLInputElement>(null)
-  const secretRef = useRef<HTMLInputElement>(null)
+	const idRef = useRef<HTMLInputElement>(null)
+	const secretRef = useRef<HTMLInputElement>(null)
 
-  return (
-    <>
-      <h2 class='page-title'>First step: the application</h2>
-      <p class='page-paragraph'>
-        In order to interact with the Discord API, you first need to <b>register an application</b>. If you don't
-        already have one, go to <TextLink href='https://discord.com/developers/applications'/>, and hit
-        "New Application".
-      </p>
-      <p class='page-paragraph'>
-        You will need to grab the "Client ID", and the "Client Secret". These two tokens will be used to authenticate
-        to the Discord API and act on behalf of your application.
-      </p>
+	return (
+		<>
+			<h2 class='page-title'>First step: the application</h2>
+			<p class='page-paragraph'>
+				In order to interact with the Discord API, you first need to <b>register an application</b>. If you
+				don't already have one, go to <TextLink href='https://discord.com/developers/applications'/>, and hit
+				"New Application".
+			</p>
+			<p class='page-paragraph'>
+				You will need to grab the "Client ID", and the "Client Secret". These two tokens will be used to
+				authenticate to the Discord API and act on behalf of your application.
+			</p>
 
-      <p class='page-paragraph'>
-        You can input these two elements in the boxes below, if you don't feel like sending some API commands by
-        yourself to Discord and want this app to do it for you. This step is optional and if you wish to do it yourself,
-        you can skip to the next step.
-      </p>
-      <Box type='warning'>
-        Be careful where you input your credentials! You should consider the "Client Secret" as a password and protect
-        it as much as the password to your Discord account. The credentials you'll enter here will stay safe in your
-        web browser.
-      </Box>
-      <div class='flex-lg'>
-        <Field inputRef={idRef} label='Client ID'/>
-        <Field inputRef={secretRef} label='Client Secret' password/>
-      </div>
-      <button onClick={() => onNext(idRef.current?.value, secretRef.current?.value)}>Next step</button>
-    </>
-  )
+			<p class='page-paragraph'>
+				You can input these two elements in the boxes below, if you don't feel like sending some API commands
+				by yourself to Discord and want this app to do it for you. This step is optional and if you wish to do
+				it yourself, you can skip to the next step.
+			</p>
+			<Box type='warning'>
+				Be careful where you input your credentials! You should consider the "Client Secret" as a password and
+				protect it as much as the password to your Discord account. The credentials you'll enter here will stay
+				safe in your web browser.
+			</Box>
+			<div class='flex-lg'>
+				<Field inputRef={idRef} label='Client ID'/>
+				<Field inputRef={secretRef} label='Client Secret' password/>
+			</div>
+			<button onClick={() => onNext(idRef.current?.value, secretRef.current?.value)}>Next step</button>
+		</>
+	)
 }

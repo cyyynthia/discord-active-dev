@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,31 +27,31 @@
  */
 
 @font-face {
-  font-family: 'Lexend';
-  font-style: normal;
-  font-display: swap;
-  src: url(./lexend-regular.woff2) format('truetype');
+	font-family: 'Lexend';
+	font-style: normal;
+	font-display: swap;
+	src: url(./lexend-regular.woff2) format('truetype');
 }
 
 @font-face {
-  font-family: 'Lexend';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(./lexend-medium.woff2) format('truetype');
+	font-family: 'Lexend';
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url(./lexend-medium.woff2) format('truetype');
 }
 
 @font-face {
-  font-family: 'Lexend';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(./lexend-bold.woff2) format('truetype');
+	font-family: 'Lexend';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url(./lexend-bold.woff2) format('truetype');
 }
 
 @font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-display: swap;
-  src: url(./jetbrains-mono-regular.woff2) format('truetype');
+	font-family: 'JetBrains Mono';
+	font-style: normal;
+	font-display: swap;
+	src: url(./jetbrains-mono-regular.woff2) format('truetype');
 }

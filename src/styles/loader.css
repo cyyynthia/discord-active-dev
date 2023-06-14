@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,50 +27,50 @@
  */
 
 .loader {
-  animation: waiting-spinner 2s linear infinite;
-  width: 32px;
-  height: 32px;
-  margin-top: -16px;
-  margin-left: -16px;
+	animation: waiting-spinner 2s linear infinite;
+	width: 32px;
+	height: 32px;
+	margin-top: -16px;
+	margin-left: -16px;
 }
 
 .loader-path {
-  animation: waiting-spinner-path 2s ease-in-out infinite;
-  stroke-dasharray: 1, 200;
-  stroke-dashoffset: 0;
-  fill: none;
-  stroke-width: 6;
-  stroke-miterlimit: 10;
-  stroke-linecap: round;
-  stroke: #f9c6c6;
+	animation: waiting-spinner-path 2s ease-in-out infinite;
+	stroke-dasharray: 1, 200;
+	stroke-dashoffset: 0;
+	fill: none;
+	stroke-width: 6;
+	stroke-miterlimit: 10;
+	stroke-linecap: round;
+	stroke: #f9c6c6;
 }
 
 .loader-path.light {
-  animation-delay: .15s;
-  opacity: .6;
+	animation-delay: .15s;
+	opacity: .6;
 }
 
 .loader-path.dark {
-  animation-delay: .23s;
-  stroke: #ea3c3c;
+	animation-delay: .23s;
+	stroke: #ea3c3c;
 }
 
 @keyframes waiting-spinner {
-  to {
-    transform: rotate(1turn);
-  }
+	to {
+		transform: rotate(1turn);
+	}
 }
 
 @keyframes waiting-spinner-path {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 130, 200;
-  }
-  to {
-    stroke-dasharray: 130, 200;
-    stroke-dashoffset: -124;
-  }
+	0% {
+		stroke-dasharray: 1, 200;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: 130, 200;
+	}
+	to {
+		stroke-dasharray: 130, 200;
+		stroke-dashoffset: -124;
+	}
 }

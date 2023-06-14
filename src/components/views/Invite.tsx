@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,48 +31,50 @@ import { h } from 'preact'
 import { TextLink } from '../Link'
 
 type Props = {
-  credentials?: Credentials
-  onNext: (token?: string) => void
-  onPrev: () => void
+	credentials?: Credentials
+	onNext: (token?: string) => void
+	onPrev: () => void
 }
 
 export default function Invite ({ credentials, onNext, onPrev }: Props) {
-  return (
-    <>
-      <h2 class='page-title'>Fifth and last step: add the app to your server</h2>
-      <p class='page-paragraph'>
-        You are almost there! The final step is to invite the app to one of your servers, so you can run the command.
-      </p>
-      {credentials
-        ? (
-          <>
-            <p class='page-paragraph'>
-              Go to the following link, and add the application to one of your servers.
-            </p>
-            <p class='page-paragraph'>
-              <TextLink href={`https://discord.com/api/oauth2/authorize?client_id=${credentials.clientId}&scope=applications.commands`}/>
-            </p>
-          </>
-        )
-        : (
-          <>
-            <p class='page-paragraph'>
-              Replace <code>{'<'}client_id{'>'}</code> by your Client ID, go to the following link, and add the
-              application to one of your servers.
-            </p>
-            <p class='page-paragraph'>
-              <code>https://discord.com/api/oauth2/authorize?client_id={'<'}client_id{'>'}&scope=applications.commands</code>
-            </p>
-          </>
-        )}
-      <p class='page-paragraph'>
-        You'll see a "ping" command appear whenever you type <code>/</code>. Try to execute it and.. tada! You've made it!!
-      </p>
+	return (
+		<>
+			<h2 class='page-title'>Fifth and last step: add the app to your server</h2>
+			<p class='page-paragraph'>
+				You are almost there! The final step is to invite the app to one of your servers, so you can run the
+				command.
+			</p>
+			{credentials
+				? (
+					<>
+						<p class='page-paragraph'>
+							Go to the following link, and add the application to one of your servers.
+						</p>
+						<p class='page-paragraph'>
+							<TextLink href={`https://discord.com/api/oauth2/authorize?client_id=${credentials.clientId}&scope=applications.commands`}/>
+						</p>
+					</>
+				)
+				: (
+					<>
+						<p class='page-paragraph'>
+							Replace <code>{'<'}client_id{'>'}</code> by your Client ID, go to the following link, and
+							add the application to one of your servers.
+						</p>
+						<p class='page-paragraph'>
+							<code>https://discord.com/api/oauth2/authorize?client_id={'<'}client_id{'>'}&scope=applications.commands</code>
+						</p>
+					</>
+				)}
+			<p class='page-paragraph'>
+				You'll see a "ping" command appear whenever you type <code>/</code>. Try to execute it and.. tada!
+				You've made it!!
+			</p>
 
-      <div class='flex'>
-        <button onClick={() => onPrev()}>Prev step</button>
-        <button onClick={() => onNext()}>Conclusion</button>
-      </div>
-    </>
-  )
+			<div class='flex'>
+				<button onClick={() => onPrev()}>Prev step</button>
+				<button onClick={() => onNext()}>Conclusion</button>
+			</div>
+		</>
+	)
 }

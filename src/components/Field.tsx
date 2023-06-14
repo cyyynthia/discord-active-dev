@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -33,18 +33,18 @@ import { useMemo } from 'preact/hooks'
 import '../styles/input.css'
 
 type InputProps = {
-  label: string
-  password?: boolean
-  inputRef: Ref<HTMLInputElement>
+	label: string
+	password?: boolean
+	inputRef: Ref<HTMLInputElement>
 }
 
 export default function Field ({ label, password, inputRef }: InputProps) {
-  const id = useMemo(() => `input-${Math.random().toString(16).slice(2)}`, [])
+	const id = useMemo(() => `input-${Math.random().toString(16).slice(2)}`, [])
 
-  return (
-    <div class='field'>
-      <label class='field-label' for={id}>{label}</label>
-      <input class='field-input' type={password ? 'password' : 'text'} id={id} ref={inputRef}/>
-    </div>
-  )
+	return (
+		<div class='field'>
+			<label class='field-label' for={id}>{label}</label>
+			<input class='field-input' type={password ? 'password' : 'text'} id={id} ref={inputRef}/>
+		</div>
+	)
 }

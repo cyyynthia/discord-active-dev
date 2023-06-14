@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,90 +28,89 @@
 
 import type { IncomingMessage, ServerResponse } from 'http'
 
-import {} from 'prom-client'
 import { webcrypto } from 'crypto'
 import http from 'http'
 
-const URL_REG = /\/([a-z0-9]{64})/
+const URL_REG = /^\/([a-z0-9]{64})$/
 
 const PING_RES = JSON.stringify({ type: 1 })
 const CMD_RES = JSON.stringify({ type: 4, data: { content: 'Pong! :D', flags: 1 << 6 } })
 
 async function validateSignature (req: IncomingMessage, body: string, key: string) {
-  try {
-    const signature = req.headers['x-signature-ed25519']
-    const timestamp = req.headers['x-signature-timestamp']
-    if (typeof signature !== 'string' || typeof timestamp !== 'string') {
-      return false
-    }
+	try {
+		const signature = req.headers['x-signature-ed25519']
+		const timestamp = req.headers['x-signature-timestamp']
+		if (typeof signature !== 'string' || typeof timestamp !== 'string') {
+			return false
+		}
 
-    const keyBuf = Buffer.from(key, 'hex')
-    const cryptoKey = await webcrypto.subtle.importKey(
-      'raw',
-      keyBuf,
-      { name: 'Ed25519', namedCurve: 'Ed25519' },
-      false,
-      [ 'verify' ]
-    )
+		const keyBuf = Buffer.from(key, 'hex')
+		const cryptoKey = await webcrypto.subtle.importKey(
+			'raw',
+			keyBuf,
+			{ name: 'Ed25519', namedCurve: 'Ed25519' },
+			false,
+			[ 'verify' ]
+		)
 
-    return webcrypto.subtle.verify(
-      'Ed25519',
-      cryptoKey,
-      Buffer.from(signature, 'hex'),
-      Buffer.from(timestamp + body)
-    )
-  } catch (e) {
-    return false
-  }
+		return webcrypto.subtle.verify(
+			'Ed25519',
+			cryptoKey,
+			Buffer.from(signature, 'hex'),
+			Buffer.from(timestamp + body)
+		)
+	} catch (e) {
+		return false
+	}
 }
 
 function handleDiscordPayload (payload: any, res: ServerResponse) {
-  let reply = ''
-  switch (payload.type) {
-    case 1:
-      reply = PING_RES
-      break
-    case 2:
-    case 3:
-      reply = CMD_RES
-      break
-  }
+	let reply = ''
+	switch (payload.type) {
+		case 1:
+			reply = PING_RES
+			break
+		case 2:
+		case 3:
+			reply = CMD_RES
+			break
+	}
 
-  if (!reply) {
-    res.writeHead(400).end('Bad request.')
-    return
-  }
+	if (!reply) {
+		res.writeHead(400).end('Bad request.')
+		return
+	}
 
-  res.setHeader('content-type', 'application/json')
-  res.setHeader('content-length', reply.length)
-  res.end(reply)
+	res.setHeader('content-type', 'application/json')
+	res.setHeader('content-length', reply.length)
+	res.end(reply)
 }
 
 function processRequest (req: IncomingMessage, res: ServerResponse) {
-  const match = req.url?.match(URL_REG)
-  if (!match) {
-    res.writeHead(405).end('Not found.')
-    return
-  }
+	const match = req.url?.match(URL_REG)
+	if (!match) {
+		res.writeHead(405).end('Not found.')
+		return
+	}
 
-  if (req.method !== 'POST') {
-    res.writeHead(405).end('Method not allowed.')
-    return
-  }
+	if (req.method !== 'POST') {
+		res.writeHead(405).end('Method not allowed.')
+		return
+	}
 
-  let body = ''
-  req.setEncoding('utf8')
-  req.on('data', (d) => (body += d))
-  req.on('end', async () => {
-    const sigValid = await validateSignature(req, body, match[1])
-    if (!sigValid) {
-      res.writeHead(400).end('Bad request.')
-      return
-    }
+	let body = ''
+	req.setEncoding('utf8')
+	req.on('data', (d) => (body += d))
+	req.on('end', async () => {
+		const sigValid = await validateSignature(req, body, match[1])
+		if (!sigValid) {
+			res.writeHead(400).end('Bad request.')
+			return
+		}
 
-    // Sig passed, we can safely trust this is JSON.
-    handleDiscordPayload(JSON.parse(body), res)
-  })
+		// Sig passed, we can safely trust this is JSON.
+		handleDiscordPayload(JSON.parse(body), res)
+	})
 }
 
 http.createServer(processRequest).listen(2789)

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,38 +30,38 @@ import { h } from 'preact'
 import { SecretValue } from '../ApiCallView'
 
 export function Response () {
-  return (
-    <>
-      <div class='api-call-code-line'>
-        <div class='api-call-token-brace'>{'{'}</div>
-      </div>
-      <div class='api-call-code-line'>
-        <span>  </span>
-        <div class='api-call-token-key'>"access_token"</div>
-        <div class='api-call-token-colon'>: </div>
-        <div class='api-call-token-string'>"<SecretValue/>"</div>
-      </div>
-      <div class='api-call-code-line'>
-        <span>  </span>
-        <div class='api-call-token-key'>"token_type"</div>
-        <div class='api-call-token-colon'>: </div>
-        <div class='api-call-token-string'>"Bearer"</div>
-      </div>
-      <div class='api-call-code-line'>
-        <span>  </span>
-        <div class='api-call-token-key'>"expires_in"</div>
-        <div class='api-call-token-colon'>: </div>
-        <div class='api-call-token-number'>604800</div>
-      </div>
-      <div class='api-call-code-line'>
-        <span>  </span>
-        <div class='api-call-token-key'>"scope"</div>
-        <div class='api-call-token-colon'>: </div>
-        <div class='api-call-token-string'>"applications.commands.update"</div>
-      </div>
-      <div class='api-call-code-line'>
-        <div class='api-call-token-brace'>{'}'}</div>
-      </div>
-    </>
-  )
+	return (
+		<>
+			<div class='api-call-code-line'>
+				<div class='api-call-token-brace'>{'{'}</div>
+			</div>
+			<div class='api-call-code-line'>
+				<span>  </span>
+				<div class='api-call-token-key'>"access_token"</div>
+				<div class='api-call-token-colon'>: </div>
+				<div class='api-call-token-string'>"<SecretValue/>"</div>
+			</div>
+			<div class='api-call-code-line'>
+				<span>  </span>
+				<div class='api-call-token-key'>"token_type"</div>
+				<div class='api-call-token-colon'>: </div>
+				<div class='api-call-token-string'>"Bearer"</div>
+			</div>
+			<div class='api-call-code-line'>
+				<span>  </span>
+				<div class='api-call-token-key'>"expires_in"</div>
+				<div class='api-call-token-colon'>: </div>
+				<div class='api-call-token-number'>604800</div>
+			</div>
+			<div class='api-call-code-line'>
+				<span>  </span>
+				<div class='api-call-token-key'>"scope"</div>
+				<div class='api-call-token-colon'>: </div>
+				<div class='api-call-token-string'>"applications.commands.update"</div>
+			</div>
+			<div class='api-call-code-line'>
+				<div class='api-call-token-brace'>{'}'}</div>
+			</div>
+		</>
+	)
 }

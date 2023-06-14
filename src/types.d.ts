@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Cynthia Rey, All rights reserved.
+ * Copyright (c) Cynthia Rey, All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,11 +27,11 @@
  */
 
 declare module '*.svg' {
-  import type { JSX } from 'preact'
-  export default function (props: JSX.SVGAttributes): JSX.Element
+	import type { JSX } from 'preact'
+	export default function (props: JSX.SVGAttributes): JSX.Element
 }
 
 declare module '*.svg?file' {
-  const asset: string
-  export default asset
+	const asset: string
+	export default asset
 }
